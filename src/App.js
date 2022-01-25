@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import { component, useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [Id, setId] = useState();
@@ -15,9 +16,7 @@ function App() {
   return (
     <Router>
       <div style={container}>
-        <div style={header}>
-          <h1>aridhi seif</h1>
-        </div>
+        <NavBar />
         <div style={body}>
           <div style={loginBox}>
             <div
