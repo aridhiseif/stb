@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.navbar {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+  background-color: black;
+  align-items: center;
+}
+
+.DBbody {
+  background-color: teal;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.btnbar {
+  background: none;
+  border-color: white;
+  color: white;
+  outline: none;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  width: 250px;
+  border-radius: 12px;
+}
+.btnbar:hover {
+  width: 270px;
+  color: black;
+  background-color: white;
+  transition: 0.25s;
+}
+
+.RDCInput {
+  height: 30px;
+  font-size: large;
+  border-radius: 15px;
+  border-color: red;
+  padding-left: 10px;
+}
+
+.btnDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.Inputdiv {
+  margin-top: 10px;
+}

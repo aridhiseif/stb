@@ -3,7 +3,7 @@ import React from "react";
 function NavBar() {
   return (
     <div style={header}>
-      <h1>aridhi seif</h1>
+      <h1>STB</h1>
     </div>
   );
 }

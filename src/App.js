@@ -1,57 +1,54 @@
 import logo from "./logo.svg";
 import { component, useState } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
+import LoginBox from "./components/LoginBox";
+import Dashboard from "./components/DashBoard/Dashboard";
+
+async function loginUser(credentials) {
+  return fetch("http://localhost:3200/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(credentials),
+  })
+    .then((response) => response.json())
+    .then((theData) => theData);
+}
 
 function App() {
-  const [Id, setId] = useState();
+  const [Ident, setId] = useState();
   const [password, setPassword] = useState();
+  const [token, setToken] = useState();
 
-  const Login = () => {
-    console.log(`identifiant est ${Id}`);
-    console.log(`Password est ${password}`);
+  const Login = async (e) => {
+    //  console.log(`identifiant est ${Id}`);
+    // console.log(`Password est ${password}`);
+
+    let body = {
+      ident: Ident,
+      password: password,
+    };
+
+    const Token = await loginUser(body);
+    console.log("first console");
+    console.log(Token);
+    setToken(Token.token);
+    console.log("second console");
+    console.log(token);
   };
 
   return (
-    <Router>
-      <div style={container}>
-        <NavBar />
-        <div style={body}>
-          <div style={loginBox}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                flex: 1,
-                alignItems: "center",
-              }}
-            >
-              <h1>Login</h1>
-              <input
-                type="text"
-                className="textinput"
-                placeholder="identifiant..."
-                onChange={(e) => setId(e.target.value)}
-              />
-              <input
-                type="password"
-                className="passinput"
-                placeholder="mot de passe...."
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <input
-                type="submit"
-                className="btn"
-                value="Login"
-                onClick={() => Login()}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </Router>
+    <div style={container}>
+      <NavBar />
+      {token == "test123" ? (
+        <Dashboard />
+      ) : (
+        <LoginBox setId={setId} setPassword={setPassword} Login={Login} />
+      )}
+    </div>
   );
 }
 
@@ -61,15 +58,6 @@ const container = {
   flexDirection: "column",
 };
 
-const header = {
-  display: "flex",
-
-  color: "red",
-  backgroundColor: "black",
-  alignItems: "center",
-  justifyContent: "center",
-  paddingTop: 20,
-};
 const body = {
   display: "flex",
   flex: 1,
@@ -78,12 +66,4 @@ const body = {
   justifyContent: "center",
 };
 
-const loginBox = {
-  width: 350,
-  height: 450,
-  backgroundColor: "#ffffff",
-  borderRadius: 15,
-  justifyContent: "center",
-  alignItems: "center",
-};
 export default App;
