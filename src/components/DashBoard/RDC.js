@@ -38,6 +38,13 @@ function RDC() {
     console.log(Cheque);
   };
 
+  const init = () => {
+    setCodeAg("");
+    setMatriculation("");
+    setMontant("");
+    setDate("");
+  };
+
   return (
     <div className="DashContainer">
       <h1>Dashboard</h1>
@@ -47,6 +54,7 @@ function RDC() {
           <input
             type="number"
             className="RDCInput"
+            value={codeAg}
             onChange={(e) => setCodeAg(e.target.value)}
           />
         </div>
@@ -55,6 +63,7 @@ function RDC() {
           <input
             type="number"
             className="RDCInput"
+            value={matriculation}
             onChange={(e) => setMatriculation(e.target.value)}
           />
         </div>
@@ -63,6 +72,7 @@ function RDC() {
           <input
             type="number"
             className="RDCInput"
+            value={montant}
             onChange={(e) => setMontant(e.target.value)}
           />
         </div>
@@ -71,14 +81,17 @@ function RDC() {
           <input
             type="String"
             className="RDCInput"
+            value={date}
             onChange={(e) => setDate(e.target.value)}
           />
         </div>
 
         <div className="btnDiv">
           <button className="btnEnr" onClick={() => enregis()}>
-            {" "}
             enregistrer
+          </button>
+          <button className="btnEnr" onClick={() => init()}>
+            initialisation
           </button>
         </div>
       </div>

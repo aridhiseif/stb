@@ -10,6 +10,7 @@ async function getCheque() {
 
 function Archive() {
   const [ArchArray, setArchArray] = useState([]);
+  const [dBtn, setDBtn] = useState(true);
 
   const refBtn = async (e) => {
     console.log(await getCheque());
@@ -33,6 +34,7 @@ function Archive() {
           ? ArchArray.map((e) => {
               return (
                 <ArchRecord
+                  _id={e._id}
                   codeAg={e.codeAg}
                   Matriculation={e.matriculation}
                   montant={e.montant}
