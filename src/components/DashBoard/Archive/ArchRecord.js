@@ -60,8 +60,10 @@ function ArchRecord({ _id, codeAg, Matriculation, montant, date }) {
           </div>
 
           <div>
-            <button onClick={() => deleteBtn()}>delete</button>
-            <button>modify</button>
+            <button className="refBtn" onClick={() => deleteBtn()}>
+              delete
+            </button>
+            <button className="refBtn">modify</button>
           </div>
         </div>
       ) : null}

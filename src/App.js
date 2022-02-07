@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div style={container}>
-      <NavBar />
+      <NavBar token={token} setToken={setToken} />
       {token == "test123" ? (
         <Dashboard />
       ) : (

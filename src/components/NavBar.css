@@ -1,0 +1,15 @@
+.decBtn {
+  background: none;
+  border-color: white;
+  color: white;
+  outline: none;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  padding: 3px;
+  border-radius: 12px;
+}
+.emptydiv {
+  width: 90px;
+  height: 5px;
+}
